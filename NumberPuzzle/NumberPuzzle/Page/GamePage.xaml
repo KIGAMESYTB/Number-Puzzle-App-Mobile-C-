@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Number_Puzzle_Android.GamePage"
+             Title="Level "
+             BackgroundColor="PapayaWhip">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Fill">
+            <Frame BackgroundColor="Transparent" />
+            <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" VerticalOptions="Start" >
+                <ImageButton x:Name="btnBefore" Source="btnBeforeLevel.png" Clicked="BtnBeforeLevel_Clicked" 
+                             HorizontalOptions="CenterAndExpand"
+                             CornerRadius="5" BackgroundColor="PapayaWhip" WidthRequest="60"/>
+                <ImageButton Source="rules.png" WidthRequest="50" BackgroundColor="Transparent" 
+                             HorizontalOptions="CenterAndExpand" Clicked="Rules_clicked"/>
+                <Button Text="00:00" x:Name="btnTime" FontSize="25" BackgroundColor="Transparent" 
+                        BorderColor="Black" BorderWidth="1.5" CornerRadius="5" TextColor="Black" 
+                        HorizontalOptions="CenterAndExpand"/>
+                <ImageButton x:Name="btnAfter" Source="btnAfterLevel.png" Clicked="BtnAfterLevel_Clicked" HorizontalOptions="CenterAndExpand"
+                                 CornerRadius="5" BackgroundColor="PapayaWhip" WidthRequest="60"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label x:Name="lblMin" Text="" HorizontalOptions="Start" VerticalTextAlignment="Center"/>
+                <Label x:Name="lblMax" Text="" HorizontalOptions="End" VerticalTextAlignment="Center"/>
+            </StackLayout> 
+            <FlexLayout Direction="Column" AlignContent="Center" JustifyContent="SpaceEvenly" VerticalOptions="FillAndExpand" >
+                
+                <Frame x:Name="frameGame" BackgroundColor="Transparent">
+                    <StackLayout x:Name="stackGame" VerticalOptions="CenterAndExpand">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="stackLoading">
+                            <Label IsVisible="true"  Text="Loading..." FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
+                            <ActivityIndicator IsVisible="true" IsRunning="True" HorizontalOptions="CenterAndExpand" />
+                        </StackLayout>
+                        <StackLayout x:Name="stackAreaGame" BackgroundColor="Transparent">
+
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame x:Name="frameWin" BackgroundColor="Wheat" IsVisible="false">
+                    <StackLayout  HorizontalOptions="CenterAndExpand" >
+                        <Label Text="Win !!!" TextColor="Goldenrod" FontSize="50" FontFamily="" FontAttributes="Bold,Italic" />
+                        <StackLayout  Orientation="Horizontal">
+                            <Label Text="+" TextColor="Goldenrod" FontSize="40" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="Center"
+                                               HorizontalTextAlignment="Start" />
+                            <Label x:Name="lblCoins" Text="" TextColor="Goldenrod" FontSize="40" FontAttributes="Bold" VerticalTextAlignment="End" VerticalOptions="End"
+                                               HorizontalTextAlignment="Center" />
+                            <Image Source="coins.png"  WidthRequest="40" />
+
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </FlexLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

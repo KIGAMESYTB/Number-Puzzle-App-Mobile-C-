@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Number_Puzzle_Android.MainPage"
+             BackgroundColor="PapayaWhip"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+        <Frame BackgroundColor="PapayaWhip">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Number Puzzle" FontAttributes="Bold" TextColor="black" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="End"/>
+            </StackLayout>
+        </Frame>
+        <FlexLayout VerticalOptions="FillAndExpand" Direction="Column" AlignItems="Center" JustifyContent="SpaceAround" Margin="20">
+            <Image Source="imageMainPage.png"/>
+            <Label x:Name="lblPhrase" Text="Number Puzzle is an addictive relaxing puzzle game. Press start to begin" TextColor="Black" FontSize="Large" HorizontalTextAlignment="Center"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Clicked="Button_Clicked" Text="START" FontSize="Medium" FontFamily="" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" BorderWidth="2" TextColor="Black"
+                        BorderColor="Black" 
+                        BackgroundColor="Transparent"/>
+            </StackLayout>
+        </FlexLayout>
+        <Label x:Name="lblCreator" Text="@kigames" TextColor="#0e2038" FontSize="Small" HorizontalOptions="Center"/>
+    </StackLayout>
+
+
+</ContentPage>

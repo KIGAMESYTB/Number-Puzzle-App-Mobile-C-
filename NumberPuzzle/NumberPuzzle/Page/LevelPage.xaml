@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Number_Puzzle_Android.LevelPage" 
+             BackgroundColor="PapayaWhip"
+             Title="Level"
+             NavigationPage.HasNavigationBar="True">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="List of Level" FontSize="Medium" FontAttributes="Bold" FontFamily=""
+                   TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <Image Source="coins.png" VerticalOptions="Center" WidthRequest="30" />
+                <Label x:Name="lblCoinsBar" Text="" TextColor="Goldenrod" FontSize="30" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Transparent">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnDifficulty" Text="All" CornerRadius="5" BorderColor="Gray" BorderWidth="2" BackgroundColor="LightGray" FontSize="Medium" Clicked="ChooseDifficulty_Clicked" HorizontalOptions="CenterAndExpand"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label x:Name="lblLevelPassed" Text="" VerticalTextAlignment="Center" FontSize="Large"/>
+                        <Button CornerRadius="50" WidthRequest="20" HeightRequest="20" VerticalOptions="CenterAndExpand" BackgroundColor="LightGreen"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <ScrollView>
+                <StackLayout>
+                    <ActivityIndicator x:Name="activityIndicatorLevel" IsRunning="True" Color="Black" IsVisible="true" VerticalOptions="CenterAndExpand"/>
+                    <ListView x:Name="listViewLevel" RowHeight="120"  SeparatorColor="Transparent" BackgroundColor="PapayaWhip"
+                          HorizontalScrollBarVisibility="Never">
+                        <ListView.ItemTemplate>
+                            <DataTemplate >
+                                <ViewCell >
+                                    <Frame HeightRequest="120" BackgroundColor="{Binding ColorBackLevel}" Margin="15" BorderColor="Gray" >
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Button Text="{Binding Difficulty}" FontSize="Small" Clicked="LevelDataDificult_Clicked"
+                                                BackgroundColor="PapayaWhip" TextColor="{Binding ColorLevelDifficulty}" AutomationId="{Binding ID}"
+                                                FontAttributes="Bold,Italic" FontFamily="" BorderColor="Black" BorderWidth="0.5" />
+                                            <StackLayout Orientation="Horizontal" Grid.Column="1">
+                                                <Label Text="Level" FontSize="Large" VerticalTextAlignment="Center" 
+                                                   HorizontalTextAlignment="Center" TextColor="Black"/>
+                                                <Label x:Name="lblId" Text="{Binding ID}" FontSize="Large"  VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center" TextColor="Black" />
+                                            </StackLayout>
+                                            <Image Source="coins.png" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End"  Margin="10" IsVisible="{Binding DidHePlay}"/>
+                                            <StackLayout  Grid.Column="3" Orientation="Horizontal">
+                                                <Label Text="+" TextColor="Goldenrod" FontSize="30" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="Center"
+                                               HorizontalTextAlignment="Start" IsVisible="{Binding DidHePlay}" />
+                                                <Label Text="{Binding Coin}" TextColor="Goldenrod" FontSize="30" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+                                               HorizontalTextAlignment="Start" IsVisible="{Binding DidHePlay}" />
+                                            </StackLayout>
+                                            <Label Text="{Binding Time}" FontSize="Large" FontAttributes="Bold" Grid.Column="2" IsVisible="{Binding Win}" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+                                            <Image Source="{Binding ImageSourceWin}" Grid.Column="3" VerticalOptions="Center" HorizontalOptions="End"  Margin="10" IsVisible="{Binding Win}"/>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+       
+
+
+    </ContentPage.Content>
+</ContentPage>
